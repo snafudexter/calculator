@@ -2,8 +2,7 @@ import React from 'react'
 
 import styled, { css } from 'styled-components'
 
-
-const colorToCss = (color) => {
+const colToCss = (color) => {
     switch (color) {
 
         case 'green':
@@ -46,14 +45,16 @@ const colorToCss = (color) => {
 }
 
 export const Button = styled.button`
+
   font-family: inherit;
-  font-size: inherit;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  border-radius: 0;
-  padding-top: 1em;
   padding-bottom: 1em;
   transition: background-color 0.15s ease-in-out, opacity 0.15s ease-in-out;
-  ${({ color }) => colorToCss(color)}
+  font-size: inherit;
+  border-radius: 0;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding-top: 1em;
+
+  ${({ color }) => colToCss(color)}
   ${({ isLarge }) => isLarge && css`
     grid-column-end: span 2;
   `}

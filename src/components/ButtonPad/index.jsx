@@ -8,34 +8,42 @@ const StyledPad = styled.div`
   grid-auto-rows: 1fr;
 `
 
-export const Pad = ({
+export const ButtonPad = ({
     onDigitButtonClick,
     onPointButtonClick,
     onOperatorButtonClick,
-    onChangeSignButtonClick,
     onEqualButtonClick,
     onAllClearButtonClick,
     onClearEntryButtonClick,
   }) => {
     const handleKeyDown = ({ keyCode, shiftKey }) => {
       console.log(keyCode)
-      if (keyCode >= 48 && keyCode <= 57 && !shiftKey) {
+      if (keyCode >= 48 && keyCode <= 57 && !shiftKey) 
+      {
         onDigitButtonClick((keyCode - 48))
-      } else if ((keyCode >= 96 && keyCode <= 105)) {
+      } else if ((keyCode >= 96 && keyCode <= 105)) 
+      {
         onDigitButtonClick((keyCode - 96))
-      } else if (keyCode === 107 || (keyCode === 187 && shiftKey)) {
+      } else if (keyCode === 107 || (keyCode === 187 && shiftKey)) 
+      {
         onOperatorButtonClick('+')
-      } else if (keyCode === 109 || keyCode === 189) {
+      } else if (keyCode === 109 || keyCode === 189) 
+      {
         onOperatorButtonClick('-')
-      } else if (keyCode === 106 || (keyCode === 56 && shiftKey)) {
+      } else if (keyCode === 106 || (keyCode === 56 && shiftKey)) 
+      {
         onOperatorButtonClick('×')
-      } else if (keyCode === 111 || keyCode === 191) {
+      } else if (keyCode === 111 || keyCode === 191) 
+      {
         onOperatorButtonClick('÷')
-      } else if (keyCode === 13 || (keyCode === 187 && !shiftKey)) {
+      } else if (keyCode === 13 || (keyCode === 187 && !shiftKey)) 
+      {
         onEqualButtonClick()
-      } else if (keyCode === 46) {
+      } else if (keyCode === 46) 
+      {
         onClearEntryButtonClick()
-      } else if (keyCode === 27) {
+      } else if (keyCode === 27) 
+      {
         onAllClearButtonClick()
       } 
     }
@@ -53,7 +61,7 @@ export const Pad = ({
         <Button onClick={onClearEntryButtonClick}>
           C
         </Button>
-        <Button color="dark" onClick={() => onOperatorButtonClick('÷')}>
+        <Button isLarge color="dark" onClick={() => onOperatorButtonClick('÷')}>
           ÷
         </Button>
         <Button onClick={() => onDigitButtonClick(7)}>
@@ -92,11 +100,12 @@ export const Pad = ({
         <Button color="dark" onClick={() => onOperatorButtonClick('+')}>
           +
         </Button>
-        <Button onClick={() => onDigitButtonClick(0)}>
-          0
-        </Button>
+        
         <Button onClick={onPointButtonClick}>
           .
+        </Button>
+        <Button onClick={() => onDigitButtonClick(0)}>
+          0
         </Button>
         <Button color="green" isLarge={true} onClick={onEqualButtonClick}>
           =
@@ -105,4 +114,4 @@ export const Pad = ({
     )
   }
   
-  export default Pad
+  export default ButtonPad
